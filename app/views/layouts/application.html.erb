@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Tennis Buddy App</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="//code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <!-- <link href="../assets/stylesheets/ionicons.css" rel="stylesheet" /> -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container-fluid main">
+
+      <div class="row">
+        <div class="pull-right nav">
+          <% if @current_user %>
+            You are logged in as
+            <%= @current_user.name %> |
+            <%= link_to "logout", login_path %>
+          <% else %>
+            <%= link_to "login", root_path %>
+          <% end %>
+        </div>
+      </div>
+  <div id="home">
+    <div class="overlay">
+    <%= yield %>
+    </div>
+  </div>
+  </div>
+</body>
+</html>
